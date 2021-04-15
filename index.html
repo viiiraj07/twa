@@ -1,0 +1,284 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Thu Apr 15 21:32:27 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>TWA</title>
+
+</head>
+<body>
+
+<h1 align="center">TWA</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#ENVIRONMENT">ENVIRONMENT</a><br>
+<a href="#TEST RESULTS">TEST RESULTS</a><br>
+<a href="#BUGS">BUGS</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">twa - tiny web
+auditor with strong opinions</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>twa</b>
+<i>[-wvcsdV] DOMAIN</i></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><i><b>twa</b></i>
+takes a <i>DOMAIN</i> hosting a website and performs a short
+security audit. It can be used to detect HTTP(S) issues,
+missing security headers, information-leaking headers, and
+other potential security hazards.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>twa</b>
+takes only one <i>DOMAIN</i> at a time. If you need to audit
+multiple sites, run the program again.</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em"><b>-v</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em">Verbose mode.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>-w</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Perform the audit on the main <i>DOMAIN</i> and the
+<i>www.</i> subdomain.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>-c</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Emit output in CSV.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>-s</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Run testssl-based checks (skipped by default)</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>-d</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Disable scanning common development ports</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>-V</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Print the version and exit.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>-h</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Print a help message and exit.</p></td></tr>
+</table>
+
+<h2>ENVIRONMENT
+<a name="ENVIRONMENT"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>NO_COLOR</b></p>
+
+<p style="margin-left:22%;">Don&rsquo;t colorize output,
+even when on a TTY.</p>
+
+<p style="margin-left:11%;"><b>TWA_TIMEOUT</b></p>
+
+<p style="margin-left:22%;">The maximum length, in seconds,
+for internal <b>curl</b> calls.</p>
+
+<p style="margin-left:11%;"><b>TWA_USER_AGENT</b></p>
+
+<p style="margin-left:22%;">The User-Agent to use for all
+<b>curl</b> calls.</p>
+
+<p style="margin-left:11%;"><b>TWA_CURLOPTS</b></p>
+
+<p style="margin-left:22%;">Any additional options to pass
+to <b>curl</b> calls.</p>
+
+<h2>TEST RESULTS
+<a name="TEST RESULTS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Each line of
+output describes the result of a single test, and follows
+the &quot;<b>RESULT</b>(<i>DOMAIN</i>): explanation&quot;
+format, where <b>RESULT</b> is one of the following:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="7%">
+
+
+<p><b>PASS</b></p></td>
+<td width="4%"></td>
+<td width="78%">
+
+
+<p>The test passed with flying colors.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="7%">
+
+
+<p><b>MEH</b></p></td>
+<td width="4%"></td>
+<td width="78%">
+
+
+<p>The test passed, but with one or more things that could
+be improved.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="7%">
+
+
+<p><b>FAIL</b></p></td>
+<td width="4%"></td>
+<td width="78%">
+
+
+<p>The test failed, and should be fixed.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="7%">
+
+
+<p><b>UNK</b></p></td>
+<td width="4%"></td>
+<td width="78%">
+
+
+<p>The server gave us something we didn&rsquo;t
+understand.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="7%">
+
+
+<p><b>SKIP</b></p></td>
+<td width="4%"></td>
+<td width="78%">
+
+
+<p>The server gave us something we understood, but that we
+don&rsquo;t handle yet.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="7%">
+
+
+<p><b>FATAL</b></p></td>
+<td width="4%"></td>
+<td width="78%">
+
+
+<p>A really important test failed, and should be fixed
+immediately.</p> </td></tr>
+</table>
+
+<h2>BUGS
+<a name="BUGS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">None known.
+File issues at:
+<i>https://github.com/trailofbits/twa</i></p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><i><b>twa</b></i>
+is maintained by William Woodruff (&lt;william @
+trailofbits.com&gt;).</p>
+<hr>
+</body>
+</html>
